@@ -318,6 +318,119 @@ echo "Hello, Linux!"
 - `groupadd groupname` - Add a new group.
 - `groupdel groupname` - Delete a group.
 
-## Conclusion
-This document provides an overview of fundamental Linux concepts, including the kernel, file systems, process management, shell scripting, and user management. It includes essential terminal commands for practice, forming a strong foundation for Linux administration and usage.
+Here's a well-structured table explaining important **Linux commands** with descriptions, options, and sample examples.  
+
+---
+
+
+# Linux Fundamentals - Part 2: Linux Commands 
+
+
+### **1. File and Directory Operations Commands**
+| **Command** | **Description** | **Options** | **Example** |
+|------------|----------------|-------------|-------------|
+| `ls` | List files and directories. | `-l`: Long format, `-a`: Show hidden files, `-h`: Human-readable sizes | `ls -lh` (Lists files with readable sizes) |
+| `cd` | Change directory. | None | `cd /home/user/Documents` (Moves to Documents) |
+| `pwd` | Print current working directory. | None | `pwd` (Displays current directory path) |
+| `mkdir` | Create a new directory. | None | `mkdir my_folder` (Creates a folder named "my_folder") |
+| `rm` | Remove files/directories. | `-r`: Recursive, `-f`: Force delete | `rm -rf my_folder` (Deletes "my_folder" and contents) |
+| `cp` | Copy files/directories. | `-r`: Recursive copy | `cp -r source destination` (Copies source to destination) |
+| `mv` | Move/rename files. | None | `mv old.txt new.txt` (Renames old.txt to new.txt) |
+| `touch` | Create an empty file or update file timestamp. | None | `touch newfile.txt` (Creates "newfile.txt") |
+| `cat` | View file contents. | None | `cat file.txt` (Displays file contents) |
+| `head` | Show first N lines of a file. | `-n`: Specify number of lines | `head -5 file.txt` (Shows first 5 lines) |
+| `tail` | Show last N lines of a file. | `-n`: Specify number of lines | `tail -5 file.txt` (Shows last 5 lines) |
+| `ln` | Create a link to a file. | `-s`: Create a symbolic link | `ln -s original.txt shortcut.txt` (Creates a shortcut) |
+| `find` | Search for files/directories. | `-name`: By name, `-type`: By type | `find /home -name "*.txt"` (Finds all .txt files) |
+
+---
+
+### **2. File Permission Commands**
+| **Command** | **Description** | **Options** | **Example** |
+|------------|----------------|-------------|-------------|
+| `chmod` | Change file permissions. | `u`: User, `g`: Group, `o`: Others | `chmod u+rwx file.txt` (Gives full access to the owner) |
+| `chown` | Change file ownership. | None | `chown user file.txt` (Changes owner of file.txt) |
+| `chgrp` | Change group ownership. | None | `chgrp developers file.txt` (Changes group to "developers") |
+| `umask` | Set default file permissions. | None | `umask 022` (Sets default permissions) |
+
+---
+
+### **3. File Compression and Archiving Commands**
+| **Command** | **Description** | **Options** | **Example** |
+|------------|----------------|-------------|-------------|
+| `tar` | Create/extract archive files. | `-c`: Create, `-x`: Extract, `-f`: Specify file | `tar -czvf archive.tar.gz folder/` (Compresses folder) |
+| `gzip` | Compress files. | `-d`: Decompress | `gzip file.txt` (Creates "file.txt.gz") |
+| `zip` | Create a compressed zip archive. | `-r`: Recursive | `zip archive.zip file1.txt file2.txt` (Zips two files) |
+
+---
+
+### **4. Process Management Commands**
+| **Command** | **Description** | **Options** | **Example** |
+|------------|----------------|-------------|-------------|
+| `ps` | Show running processes. | `-aux`: Show all processes | `ps aux` (Lists all processes) |
+| `top` | Monitor system processes. | None | `top` (Displays active processes) |
+| `kill` | Terminate a process. | `-9`: Force kill | `kill -9 PID` (Kills process by PID) |
+| `pkill` | Kill processes by name. | None | `pkill firefox` (Terminates Firefox) |
+| `pgrep` | List processes by name. | None | `pgrep sshd` (Lists SSH processes) |
+
+---
+
+### **5. System Information Commands**
+| **Command** | **Description** | **Options** | **Example** |
+|------------|----------------|-------------|-------------|
+| `uname` | Print system information. | `-a`: All info | `uname -a` (Shows system details) |
+| `whoami` | Display current username. | None | `whoami` (Shows logged-in user) |
+| `df` | Show disk usage. | `-h`: Human-readable | `df -h` (Displays disk space usage) |
+| `du` | Show directory size. | `-sh`: Summary | `du -sh folder/` (Shows folder size) |
+| `free` | Show memory usage. | `-h`: Human-readable | `free -h` (Displays memory usage) |
+| `uptime` | Show system uptime. | None | `uptime` (Displays system uptime) |
+
+---
+
+### **6. Networking Commands**
+| **Command** | **Description** | **Example** |
+|------------|----------------|-------------|
+| `ifconfig` | Display network information. | `ifconfig` (Shows network details) |
+| `ping` | Check network connectivity. | `ping google.com` (Sends ICMP request to Google) |
+| `netstat` | Show network connections. | `netstat -tuln` (Displays active ports) |
+| `ss` | Show socket information. | `ss -tuln` (Lists listening connections) |
+| `ssh` | Remote login. | `ssh user@host` (Connects to a remote host) |
+| `scp` | Copy files securely. | `scp file.txt user@host:/path/` (Copies file remotely) |
+| `wget` | Download files. | `wget http://example.com/file.txt` (Downloads a file) |
+| `curl` | Fetch data from URLs. | `curl http://example.com` (Gets webpage content) |
+
+---
+
+### **7. IO Redirection Commands**
+| **Command** | **Description** | **Example** |
+|------------|----------------|-------------|
+| `cmd > file` | Redirect output to a file. | `ls > list.txt` (Saves output to file) |
+| `cmd >> file` | Append output to a file. | `echo "Hello" >> file.txt` (Appends text) |
+| `cmd < file` | Use file as input. | `cat < file.txt` (Reads input from file) |
+| `cmd 2> file` | Redirect error output. | `ls nonexistent 2> error.log` (Saves errors) |
+| `cmd 2>&1` | Merge stdout & stderr. | `ls > output.log 2>&1` (Saves both output & errors) |
+
+---
+
+### **8. Environment Variable Commands**
+| **Command** | **Description** | **Example** |
+|------------|----------------|-------------|
+| `export VAR=value` | Set an environment variable. | `export PATH=$PATH:/new/path` (Adds a new path) |
+| `echo $VAR` | Show variable value. | `echo $HOME` (Displays home directory) |
+| `env` | List all environment variables. | `env` (Lists all variables) |
+| `unset VAR` | Remove an environment variable. | `unset MYVAR` (Deletes MYVAR) |
+
+---
+
+### **9. User Management Commands**
+| **Command** | **Description** | **Example** |
+|------------|----------------|-------------|
+| `who` | Show logged-in users. | `who` (Lists users) |
+| `adduser user` | Create a new user. | `sudo adduser john` (Creates "john") |
+| `deluser user` | Delete a user. | `sudo deluser john` (Deletes "john") |
+| `passwd user` | Change user password. | `sudo passwd john` (Changes password for "john") |
+
+---
+
+This structured table provides a **quick reference** for essential Linux commands. Let me know if you need any modifications! 🚀
 
